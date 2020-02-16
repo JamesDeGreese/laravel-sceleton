@@ -1,0 +1,36 @@
+version: '3'
+services:
+  composer:
+    build: docker/composer
+    volumes:
+      - ./:/app
+    user: 1000:1000
+    depends_on:
+      - db
+
+  php:
+    build: docker/php
+    volumes:
+      - ./:/app
+    user: 1000:1000
+    working_dir: /app
+    command: php artisan serve --host=0.0.0.0 --port=8000
+    ports:
+      - 80:8000
+    depends_on:
+      - db
+
+  nodejs:
+    image: node:11-alpine
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+  db:
+    image: mysql:8
+    ports:
+      - 3306:3306
+    volumes:
+      - /var/lib/mysql/:/var/lib/mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456

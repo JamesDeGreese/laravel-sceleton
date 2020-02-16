@@ -1,0 +1,13 @@
+{
+    "name": "auth",
+    "description": "Auth component with RBAC",
+    "authors": [
+        {
+            "name": "Ilya Storchevoy",
+            "email": "storchevoyilya@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+    }
+}
