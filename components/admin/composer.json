@@ -1,0 +1,13 @@
+{
+    "name": "admin",
+    "description": "Admin package providing layouts and some views",
+    "authors": [
+        {
+            "name": "Ilya Storchevoy",
+            "email": "storchevoyilya@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+    }
+}
