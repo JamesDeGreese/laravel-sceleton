@@ -1,0 +1,13 @@
+{
+    "name": "articles",
+    "description": "Articles component",
+    "authors": [
+        {
+            "name": "Ilya Storchevoy",
+            "email": "storchevoyilya@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+    }
+}

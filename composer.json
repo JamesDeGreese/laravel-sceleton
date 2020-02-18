@@ -34,7 +34,9 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Components\\Auth\\": "components/auth/src"
+            "Components\\Admin\\": "components/admin/src/",
+            "Components\\Auth\\": "components/auth/src/",
+            "Components\\Articles\\": "components/articles/src/"
         },
         "classmap": [
             "database/seeds",

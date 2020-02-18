@@ -178,7 +178,9 @@ return [
         /*
          * Components Service Providers
          */
+        Components\Admin\Providers\AdminServiceProvider::class,
         Components\Auth\Providers\AuthServiceProvider::class,
+        Components\Articles\Providers\ArticlesServiceProvider::class,
 
     ],
 
