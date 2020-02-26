@@ -8,9 +8,19 @@ use Illuminate\Http\Response;
 class AdminController extends Controller
 {
     /**
+     * Show login form
+     *
+     * @return Response
+     */
+    public function login(): Response
+    {
+        return response()->view('admin::login');
+    }
+
+    /**
      * Display a dashboard of admin panel.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function dashboard(): Response
     {

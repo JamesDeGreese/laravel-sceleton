@@ -1,8 +1,12 @@
 <?php
 
 /**
- * @var string $active_link
+ * @var string $activeLink
  */
+
+if (!isset($activeLink)) {
+    $activeLink = '';
+}
 
 // list of active links for dropdown menus
 
@@ -35,7 +39,7 @@ $blogLinks = [
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Admin Panel</a>
+            <span class="navbar-brand">Admin Panel</span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -54,10 +58,18 @@ $blogLinks = [
                             <a class="dropdown-item {{ $activeLink == 'articles' ? 'active' : '' }}" href="{{ route('admin.articles.index') }}">Articles</a>
                         </div>
                     </li>
+                    <li class="nav-item">
+
+                    </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <a class="nav-link btn btn-danger" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
                 </form>
             </div>
         </nav>

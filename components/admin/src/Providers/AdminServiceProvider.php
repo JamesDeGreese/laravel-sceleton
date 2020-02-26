@@ -2,6 +2,7 @@
 
 namespace Components\Admin\Providers;
 
+use Components\Admin\Http\Middleware\CheckRole;
 use Illuminate\Support\ServiceProvider;
 
 class AdminServiceProvider extends ServiceProvider {
@@ -17,6 +18,8 @@ class AdminServiceProvider extends ServiceProvider {
         $this->publishes([
             __DIR__. '/../Assets' => public_path('vendor/admin'),
         ], 'public');
+
+        app('router')->aliasMiddleware('admin', CheckRole::class);
     }
 
     /**
