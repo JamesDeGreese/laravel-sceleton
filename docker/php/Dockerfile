@@ -1,18 +1,13 @@
-FROM ubuntu:18.04
+FROM php:7.2-alpine
 
-ENV TZ Europe/Moscow
-ENV TERM linux
-ENV DEBIAN_FRONTEND noninteractive
-ENV PHP_INI_SCAN_DIR "/usr/local/etc/php/conf.d/:${PHP_INI_SCAN_DIR}"
-
-RUN apt-get update \
-    && apt-get install -y \
-    php7.2 \
-    php-gd \
-    php-json \
-    php-mbstring \
-    php-mysql \
-    php-xml \
-    ssmtp \
-    mailutils \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache \
+        freetype-dev \
+        libjpeg-turbo-dev \
+        libmcrypt-dev \
+        libpng-dev \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-install -j$(nproc) json \
+    && docker-php-ext-install -j$(nproc) mbstring \
+    && docker-php-ext-install -j$(nproc) mysqli pdo_mysql \
+    && docker-php-ext-install -j$(nproc) zip
